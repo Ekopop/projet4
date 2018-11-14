@@ -3,34 +3,25 @@
             <?php
                 require('model/PostManager.php');
                 $postManager = new PostManager();
-                $post = $postManager->getPosts();
-                $count = count ($post);
-                $nbPosts = 0;
+                $idPost = $_GET['id'];
+                $post = $postManager->getPost($idPost);
+                var_dump($post);
+             ?>
+                <div class="border m-4">
 
-                while ($nbPosts < $count)
-                { 
-                    ?>
-                        <div class="border m-4">
+                <div class="d-flex justify-content-between border p-2"> 
+                    <span> <?php echo $post['title']; ?> </span> 
+                    <span> le <?php echo $post['date_creation']; ?> </span> 
+                </div>
 
-                            <div class="d-flex justify-content-between border p-2"> 
-                                <span> <?php echo $post [$nbPosts]['title']; ?> </span> 
-                                <span> le <?php echo $post [$nbPosts]['date']; ?> </span> 
-                            </div>
+                <div class="p-4">
+                    <span><?php echo $post['content']; ?></span>
+                </div>
 
-                            <div class="contentPost p-4">
-                                <?php echo $post [$nbPosts]['content']; ?>
-                            </div>
-
-                            <div class="d-flex justify-content-between border p-2">
-                                <span>Ajouter un commentaire</span> 
-                                <span>Lire les commentaires</span>
-                            </div>
-
-                            <?php $nbPosts ++; ?>
-
-                        </div>
-                    <?php
-                }
-            ?>
+                <div class="d-flex justify-content-between border p-2">
+                    <span>Ajouter un commentaire</span> 
+                    <span>Lire les commentaires</span>
+                </div>
+            </div>
         </div>
     </div>

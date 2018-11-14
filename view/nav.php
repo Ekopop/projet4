@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -21,7 +21,7 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#view/admin.php"><i class="fas fa-cog"></i><span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="connexion.php"><i class="fas fa-cog"></i><span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

@@ -3,5 +3,13 @@ html, body {
 }
 
 .contentPost {
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentPost span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 200px;
 }

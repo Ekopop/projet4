@@ -14,7 +14,7 @@
     <body>
         <?php 
             require('view/nav.php');
-            require('view/post.php');
+            require('view/posts.php');
             require('view/footer.php'); 
         ?>
 
