@@ -19,7 +19,8 @@
                 require('model/PostManager.php');
                 $postManager = new PostManager();
                 $post = $postManager->getLastPost();
-                $idPost = $post[0]['id']; 
+                $idPost = $post[0]['id'];
+                $first=substr($post[0]['content'],0,500);
             ?>
             <div class="border m-4">
                 <div class="d-flex justify-content-between border p-2"> 
@@ -29,7 +30,7 @@
                 </div>
 
                 <div class="contentPost p-4">
-                    <span><?php echo $post[0]['content']; ?></span>
+                    <span><?php echo $first; ?></span>
                     <a href="pagePost.php?id=<?php echo $idPost ?>">Lire la suite...</a>
                 </div>
 

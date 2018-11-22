@@ -15,7 +15,6 @@
         <?php 
             require('view/nav.php');
             require('view/accueil.php');
-            require('view/footer.php'); 
         ?>
 
         <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>

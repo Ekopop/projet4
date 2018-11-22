@@ -8,8 +8,6 @@ html, body {
 }
 
 .contentPost span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-height: 200px;
+    max-height: 100%;
 }
