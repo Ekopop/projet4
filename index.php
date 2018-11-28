@@ -12,9 +12,19 @@
         <title>Projet 4</title>
     </head>
     <body>
-        <?php 
+        <?php
+            require('db.php');
+            require('model/PostManager.php');
             require('view/nav.php');
-            require('view/accueil.php');
+
+            if (isset($_GET['c']) && !empty($_GET['c'])) {
+                $controllerName = 'view/' . $_GET['c'] . '.php';
+                if (is_file($controllerName)) {
+                    include($controllerName);
+                }
+            } else {
+                include('view/accueil.php');
+            }
         ?>
 
         <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
@@ -23,4 +33,3 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
- 

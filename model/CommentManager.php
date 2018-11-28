@@ -22,10 +22,16 @@ class CommentManager
 		$post = $req->fetch();
 		return $comment;
     }
-    
-    public function addComment(int $id_post, string $autor, string $contentComment)
+
+    public function addComment(int $id_post, string $author, string $contentComment)
     {
-		$date_creation = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
-        $this->db->exec('INSERT INTO post_comment(id, id_post, autor, content, date_creation) VALUES(\'\', $id_post, $autor, $contentComment, $date_creation)');
+		$sql = 'INSERT INTO post_comment(id_post, autor, content, date_creation) VALUES(:idPost, :author, :content, NOW())';
+
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array(
+			':idPost' => $id_post,
+			':author' => $author,
+			':content' => strip_tags($contentComment)
+		));
     }
 }

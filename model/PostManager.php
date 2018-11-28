@@ -1,5 +1,4 @@
 <?php
-require('db.php');
 
 class PostManager
 {
@@ -30,4 +29,36 @@ class PostManager
 		$req->execute();
 		return $req->fetchAll();
 	}
+
+	public function addPost(string $title, string $content)
+    {
+		$sql = 'INSERT INTO posts(title, content, date_creation) VALUES(:title, :content, NOW())';
+
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array(
+			':title' => $title,
+			':content' => strip_tags($content)
+		));
+	}
+
+	public function deletPost(int $id)
+    {
+		
+		$sql = 'DELETE FROM posts WHERE id = :idPost';
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array(
+			':idPost' => $id
+		));
+	}
+	
+	public function modifyPost(int $id, string $content)
+    {
+		
+		$sql = 'UPDATE posts SET content = :content WHERE id = :id';
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array(
+			':id' => $id,
+			':content' => $content
+		));
+    }
 }

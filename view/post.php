@@ -1,5 +1,4 @@
 <?php
-    require('model/PostManager.php');
     $postManager = new PostManager();
     $idPost = $_GET['id'];
     $post = $postManager->getPost($idPost);
@@ -11,17 +10,14 @@
 ?>
 <div class="row justify-content-md-center rounded">
     <div class="col-11 border" id="epContent">
-            <div class="border m-4">
-
+        <div class="border m-4">
             <div class="d-flex justify-content-between border p-2"> 
                 <span> <?php echo $post['title']; ?> </span> 
                 <span> le <?php echo $post['date_creation_fr']; ?> </span> 
             </div>
-
             <div class="p-4">
                 <span><?php echo $post['content']; ?></span>
             </div>
-
             <div class="d-flex justify-content-between border p-2">
                 <span>Ajouter un commentaire</span> 
                 <span>Lire les commentaires(<?php echo $nbComment ?>)</span>
@@ -30,8 +26,14 @@
     </div>
 </div>
 
-<div class="row justify-content-md-center rounded" id="listComment">
-    <div class="col-6 p-4" id="commentaire">
+<?php 
+    $count = count ($comments);
+    $nbComment = 0;
+    while ($nbComment < $count)
+    { 
+?>
+<div class="row justify-content-md-center rounded">
+    <div class="col-6 p-4">
         <div class="d-flex justify-content-between border p-2"> 
             <span> Auteur : <?php echo $comments[0]['autor']; ?> </span> 
             <span> le <?php echo $comments[0]['date_creation']; ?> </span> 
@@ -42,8 +44,12 @@
         </div>
     </div>
 </div>
+<?php
+    $nbComment++;
+    }
+?>
 
-<form class="row justify-content-md-center rounded" id="makeComment" action="./model/PostComment.php" method="post">
+<form class="row justify-content-md-center rounded" id="makeComment" action="index.php?c=PostComment.php" method="post">
     <div class="form-group">
         <input type="text" readonly class="form-control-plaintext" id="idPost" value="<?php echo $idPost ?>" name="idPost">
     </div>

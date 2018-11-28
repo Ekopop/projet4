@@ -16,7 +16,6 @@
         <div class="col-11 border" id="epContent">
             <p class="text-center font-weight-bold m-4">Dernier Article posté</p>
             <?php
-                require('model/PostManager.php');
                 $postManager = new PostManager();
                 $post = $postManager->getLastPost();
                 $idPost = $post[0]['id'];
@@ -31,7 +30,7 @@
 
                 <div class="contentPost p-4">
                     <span><?php echo $first; ?></span>
-                    <a href="pagePost.php?id=<?php echo $idPost ?>">Lire la suite...</a>
+                    <a href="index.php?c=post&id=<?php echo $idPost ?>">Lire la suite...</a>
                 </div>
 
                 <div class="d-flex justify-content-between border p-2">
