@@ -37,7 +37,7 @@ class PostManager
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(
 			':title' => $title,
-			':content' => strip_tags($content)
+			':content' => $content
 		));
 	}
 
